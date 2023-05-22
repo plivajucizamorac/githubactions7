@@ -83,6 +83,8 @@ jobs:
         run: echo "Deploying..."
 
   report:
+    needs: [lint, deploy] # only first and last job are enough cause the rest are linked already
+    if: failure()
     runs-on: ubuntu-latest
     steps:
       - name: Output information
