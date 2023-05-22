@@ -80,7 +80,8 @@ jobs:
     uses: ./.github/workflows/reusable.yaml
     with:
       artifact-name: dist-files
-
+    # secrets:
+    #   some-secret: ${{ secrets.some-secret }}
   report:
     needs: [lint, deploy] # only first and last job are enough cause the rest are linked already
     if: failure()
